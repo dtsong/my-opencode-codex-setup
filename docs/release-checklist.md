@@ -1,0 +1,30 @@
+# Release Checklist
+
+Use this checklist before tagging a release.
+
+## Pre-release
+
+- [ ] `README.md` reflects current scripts, skills, and agent docs
+- [ ] `docs/roadmap.md` reflects current phase status
+- [ ] examples still run as documented
+- [ ] no local-only assumptions or paths leaked into docs
+
+## Validation
+
+- [ ] `bash -n scripts/*.sh` passes
+- [ ] `./scripts/ops-check.sh` passes in this repo
+- [ ] install and uninstall path tested:
+  - [ ] `./install.sh`
+  - [ ] `./install.sh --uninstall`
+
+## Community health
+
+- [ ] issue templates are present and current
+- [ ] PR template is present and current
+- [ ] `SECURITY.md` and `CODE_OF_CONDUCT.md` are up to date
+
+## Publish
+
+- [ ] changelog notes prepared
+- [ ] version tag created
+- [ ] GitHub release drafted with highlights and migration notes

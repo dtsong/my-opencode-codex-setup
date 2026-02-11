@@ -50,3 +50,10 @@ See `docs/roadmap.md`.
 - `scripts/issue-pr-loop.sh` - issue to branch to draft PR flow
 
 See `docs/workflows-playbook.md` for usage patterns.
+
+## Open Source Readiness
+
+- community templates in `.github/`
+- `SECURITY.md` and `CODE_OF_CONDUCT.md`
+- practical usage examples in `examples/`
+- release checklist in `docs/release-checklist.md`

@@ -27,3 +27,6 @@
 - examples
 - templates
 - contribution guardrails
+- GitHub issue and PR templates
+- security and code of conduct policies
+- release checklist for publish workflow
