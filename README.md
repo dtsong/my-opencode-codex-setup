@@ -105,3 +105,4 @@ See `docs/workflows-playbook.md` for usage patterns.
 - `SECURITY.md` and `CODE_OF_CONDUCT.md`
 - practical usage examples in `examples/`
 - release checklist in `docs/release-checklist.md`
+- launch checklist in `docs/open-source-launch.md`

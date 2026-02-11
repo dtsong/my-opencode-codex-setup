@@ -52,6 +52,8 @@ This file is created or updated during install/profile changes.
 2. Enable `council-lite` when you want more orchestration.
 3. Try `council-research` only when you are comfortable with fast iteration and changing behavior.
 
+Council-lite promotion criteria are tracked in `profiles/council-lite/QUALITY_GATES.md`.
+
 After enabling `council-lite`, run:
 
 ```bash

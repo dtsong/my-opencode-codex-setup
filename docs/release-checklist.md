@@ -6,6 +6,7 @@ Use this checklist before tagging a release.
 
 - [ ] `README.md` reflects current scripts, skills, and agent docs
 - [ ] `docs/roadmap.md` reflects current phase status
+- [ ] `docs/open-source-launch.md` reviewed if this is a launch window
 - [ ] examples still run as documented
 - [ ] no local-only assumptions or paths leaked into docs
 

@@ -4,6 +4,8 @@ Stability: `beta`
 
 Council Lite provides a lightweight deliberation workflow on top of the core profile.
 
+Promotion criteria from `beta` to `stable` are defined in `profiles/council-lite/QUALITY_GATES.md`.
+
 ## What It Adds
 
 - `commands/council-lite.md`

@@ -2,6 +2,32 @@
 
 All notable changes to this project are documented in this file.
 
+## [0.2.0] - 2026-02-11
+
+Profile platform and council-lite maturation release focused on OSS hardening.
+
+### Added
+
+- Profile management layer with registry/manifests and installer profile commands.
+- `council-lite` profile and session lifecycle workflow (`run`, `list`, `resume`).
+- Structured council-lite artifact generation under `memory/council-lite/<session-id>/`.
+- Council-lite artifact validator: `scripts/validate-council-lite.sh`.
+- CI matrix coverage on Linux and macOS.
+- Secret scanning in CI with gitleaks.
+- One-time launch checklist: `docs/open-source-launch.md`.
+- Council-lite promotion gates: `profiles/council-lite/QUALITY_GATES.md`.
+
+### Changed
+
+- Installer now supports explicit conflict handling policy (`--conflict-policy fail|skip`), with `fail` as default.
+- Profile and workflow docs updated for council-lite lifecycle and validation commands.
+- Release checklist expanded with conflict-policy and council-lite validation checks.
+
+### Notes
+
+- `council-lite` remains `beta` pending quality-gate completion.
+- `council-research` remains `experimental` and battle-testing-driven.
+
 ## [0.1.0] - 2026-02-11
 
 Initial public baseline release for `my-opencode-codex-setup`.
