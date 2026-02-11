@@ -11,6 +11,8 @@
 
 ## Phase 3: Agents
 - architect, skeptic, craftsman, operator, chronicler, scout
+- tighten prompts with scope, heuristics, and tool boundaries
+- add usage playbook and pairing guidance
 
 ## Phase 4: Workflows
 - handover
