@@ -21,7 +21,8 @@ Use this checklist before tagging a release.
   - [ ] `./install.sh --profiles core,council-lite`
   - [ ] `./install.sh --enable-profile council-research`
   - [ ] `./install.sh --disable-profile council-research`
-  - [ ] `./scripts/council-lite.sh start "Smoke test"`
+  - [ ] `./scripts/council-lite.sh run "Smoke test"`
+  - [ ] `./scripts/council-lite.sh list`
   - [ ] `./install.sh --uninstall`
 - [ ] experimental warning shown when `council-research` is enabled
 - [ ] profile state removed on uninstall (`~/.config/opencode/profiles-enabled.json`)

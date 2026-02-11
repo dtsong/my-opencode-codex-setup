@@ -18,7 +18,14 @@ Council Lite provides a lightweight deliberation workflow on top of the core pro
 ## Quick Start
 
 ```bash
-./scripts/council-lite.sh start "Design safe billing webhooks"
+./scripts/council-lite.sh run "Design safe billing webhooks"
+./scripts/council-lite.sh list
+./scripts/council-lite.sh resume <session-id>
 ```
 
-This generates a session scaffold in `memory/` with recommended agents and execution flow.
+This initializes a structured session under `memory/council-lite/<session-id>/` with:
+
+- intake
+- assembly
+- deliberation rounds (position/challenge/converge)
+- execution plan

@@ -43,7 +43,8 @@ Common commands:
 ./install.sh --disable-profile council-lite
 
 # start a council-lite session scaffold
-./scripts/council-lite.sh start "Design safe billing webhooks"
+./scripts/council-lite.sh run "Design safe billing webhooks"
+./scripts/council-lite.sh list
 ```
 
 Profile state is persisted at:

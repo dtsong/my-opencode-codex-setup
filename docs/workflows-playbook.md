@@ -56,9 +56,12 @@ This creates one branch and one draft PR per issue.
 
 ```bash
 ./scripts/council-lite.sh status
-./scripts/council-lite.sh start "Design safe billing webhooks"
+./scripts/council-lite.sh list
+./scripts/council-lite.sh run "Design safe billing webhooks"
+./scripts/council-lite.sh resume <session-id>
 ```
 
 Notes:
 - requires `council-lite` profile enabled
-- creates `memory/COUNCIL-LITE-<timestamp>.md` scaffold
+- creates session artifacts in `memory/council-lite/<session-id>/`
+- includes intake, assembly, deliberation rounds, and plan templates

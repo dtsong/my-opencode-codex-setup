@@ -43,5 +43,15 @@ jobs:
         run: |
           ./install.sh --profiles core,council-lite
           ./scripts/council-lite.sh status
-          ./scripts/council-lite.sh start "CI smoke test goal"
+          ./scripts/council-lite.sh run "CI smoke test goal"
+          ./scripts/council-lite.sh list
+          SESSION_ID=$(python3 - <<'PY'
+          import json
+          from pathlib import Path
+
+          data = json.loads(Path("memory/council-lite/index.json").read_text())
+          print(data["sessions"][-1]["id"])
+          PY
+          )
+          ./scripts/council-lite.sh resume "$SESSION_ID"
           ./install.sh --uninstall

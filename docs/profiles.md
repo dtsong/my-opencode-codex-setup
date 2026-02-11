@@ -42,7 +42,9 @@ This file is created or updated during install/profile changes.
 After enabling `council-lite`, run:
 
 ```bash
-./scripts/council-lite.sh start "Design safe billing webhooks"
+./scripts/council-lite.sh run "Design safe billing webhooks"
+./scripts/council-lite.sh list
+./scripts/council-lite.sh resume <session-id>
 ```
 
 ## Experimental Warning: council-research

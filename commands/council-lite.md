@@ -8,10 +8,13 @@ Script:
 Usage:
 ```bash
 ./scripts/council-lite.sh status
-./scripts/council-lite.sh start "Design safe billing webhooks"
+./scripts/council-lite.sh list
+./scripts/council-lite.sh run "Design safe billing webhooks"
+./scripts/council-lite.sh resume <session-id>
 ```
 
 Notes:
 - `council-lite` profile must be enabled.
 - Enable with `./install.sh --enable-profile council-lite`.
-- Session scaffold is written to `memory/COUNCIL-LITE-<timestamp>.md`.
+- Sessions are written to `memory/council-lite/<session-id>/`.
+- Artifacts include intake, assembly, deliberation rounds, and execution plan.
