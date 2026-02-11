@@ -23,7 +23,20 @@ Profiles let you choose how much capability to install.
 # enable/disable one profile
 ./install.sh --enable-profile council-lite
 ./install.sh --disable-profile council-lite
+
+# conflict handling policy
+./install.sh --conflict-policy fail --profiles core,council-lite
+./install.sh --conflict-policy skip --profiles core,council-lite
 ```
+
+## Conflict Policy
+
+When a managed path in `~/.config/opencode/` already exists and is not a symlink:
+
+- `--conflict-policy fail` (default): abort install before writing state
+- `--conflict-policy skip`: continue, but skip conflicting paths
+
+Recommended default is `fail` so you do not accidentally mix unmanaged and managed configuration.
 
 ## State Location
 
@@ -45,6 +58,7 @@ After enabling `council-lite`, run:
 ./scripts/council-lite.sh run "Design safe billing webhooks"
 ./scripts/council-lite.sh list
 ./scripts/council-lite.sh resume <session-id>
+./scripts/validate-council-lite.sh --latest
 ```
 
 ## Experimental Warning: council-research

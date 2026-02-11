@@ -8,7 +8,12 @@ on:
 
 jobs:
   validation:
-    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+
+    runs-on: ${{ matrix.os }}
 
     steps:
       - name: Checkout
@@ -30,6 +35,8 @@ jobs:
         run: |
           ./install.sh --list-profiles
           ./install.sh --status
+          ./install.sh --conflict-policy fail --profiles core,council-lite
+          ./install.sh --conflict-policy skip --profiles core,council-lite
           ./install.sh --profiles core,council-lite
           ./install.sh --enable-profile council-research
           ./install.sh --disable-profile council-research
@@ -54,4 +61,19 @@ jobs:
           PY
           )
           ./scripts/council-lite.sh resume "$SESSION_ID"
+          ./scripts/validate-council-lite.sh --latest
           ./install.sh --uninstall
+
+  secret-scan:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run gitleaks
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -59,9 +59,11 @@ This creates one branch and one draft PR per issue.
 ./scripts/council-lite.sh list
 ./scripts/council-lite.sh run "Design safe billing webhooks"
 ./scripts/council-lite.sh resume <session-id>
+./scripts/validate-council-lite.sh --latest
 ```
 
 Notes:
 - requires `council-lite` profile enabled
 - creates session artifacts in `memory/council-lite/<session-id>/`
 - includes intake, assembly, deliberation rounds, and plan templates
+- validation script checks required files and headings

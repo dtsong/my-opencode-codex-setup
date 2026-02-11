@@ -21,6 +21,7 @@ Council Lite provides a lightweight deliberation workflow on top of the core pro
 ./scripts/council-lite.sh run "Design safe billing webhooks"
 ./scripts/council-lite.sh list
 ./scripts/council-lite.sh resume <session-id>
+./scripts/validate-council-lite.sh --latest
 ```
 
 This initializes a structured session under `memory/council-lite/<session-id>/` with:

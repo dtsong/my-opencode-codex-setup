@@ -38,6 +38,10 @@ Common commands:
 # set exact profiles (dependencies auto-added)
 ./install.sh --profiles core,council-lite
 
+# choose conflict behavior when target paths already exist
+./install.sh --conflict-policy fail --profiles core,council-lite
+./install.sh --conflict-policy skip --profiles core,council-lite
+
 # enable or disable one profile
 ./install.sh --enable-profile council-lite
 ./install.sh --disable-profile council-lite
@@ -45,6 +49,7 @@ Common commands:
 # start a council-lite session scaffold
 ./scripts/council-lite.sh run "Design safe billing webhooks"
 ./scripts/council-lite.sh list
+./scripts/validate-council-lite.sh --latest
 ```
 
 Profile state is persisted at:
@@ -56,6 +61,9 @@ For profile adoption guidance, see `docs/profiles.md`.
 ## What This Installs
 
 `install.sh` creates symlinks into `~/.config/opencode/` so edits in this repo apply immediately.
+
+If a managed target path already exists and is not a symlink, install fails by default.
+Use `--conflict-policy skip` to leave conflicting paths untouched and continue linking non-conflicting paths.
 
 `./install.sh --uninstall` removes managed symlinks and profile state.
 
@@ -87,6 +95,7 @@ See `docs/roadmap.md`.
 - `scripts/ops-check.sh` - stack-aware quality gate checks
 - `scripts/issue-pr-loop.sh` - issue to branch to draft PR flow
 - `scripts/council-lite.sh` - lightweight multi-agent session scaffold
+- `scripts/validate-council-lite.sh` - council-lite artifact structure validator
 
 See `docs/workflows-playbook.md` for usage patterns.
 

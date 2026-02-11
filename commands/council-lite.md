@@ -11,6 +11,7 @@ Usage:
 ./scripts/council-lite.sh list
 ./scripts/council-lite.sh run "Design safe billing webhooks"
 ./scripts/council-lite.sh resume <session-id>
+./scripts/validate-council-lite.sh --latest
 ```
 
 Notes:
@@ -18,3 +19,4 @@ Notes:
 - Enable with `./install.sh --enable-profile council-lite`.
 - Sessions are written to `memory/council-lite/<session-id>/`.
 - Artifacts include intake, assembly, deliberation rounds, and execution plan.
+- Validate generated artifacts with `scripts/validate-council-lite.sh`.

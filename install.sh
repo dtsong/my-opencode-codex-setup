@@ -6,6 +6,7 @@ TARGET_DIR="$HOME/.config/opencode"
 PROFILES_DIR="$REPO_DIR/profiles"
 REGISTRY_PATH="$PROFILES_DIR/registry.json"
 STATE_PATH="$TARGET_DIR/profiles-enabled.json"
+CONFLICT_POLICY="fail"
 
 MANAGED_ITEMS=(
   "agents"
@@ -31,11 +32,49 @@ Profile management:
   --profiles <csv>                Set enabled profiles (dependencies auto-added).
   --enable-profile <id>           Enable one profile.
   --disable-profile <id>          Disable one profile (core cannot be disabled).
+  --conflict-policy <fail|skip>   Behavior when target path already exists.
 
 Other:
   --uninstall                     Remove managed symlinks and profile state.
   -h, --help                      Show this help.
 EOF
+}
+
+collect_conflicts() {
+  mkdir -p "$TARGET_DIR"
+  local conflicts=()
+  local item
+  for item in "${MANAGED_ITEMS[@]}"; do
+    local target_path="$TARGET_DIR/$item"
+    if [[ -e "$target_path" && ! -L "$target_path" ]]; then
+      conflicts+=("$target_path")
+    fi
+  done
+
+  if [[ "${#conflicts[@]}" -eq 0 ]]; then
+    return 0
+  fi
+
+  echo "Detected install path conflicts:"
+  for path in "${conflicts[@]}"; do
+    echo "- $path"
+  done
+  echo ""
+  echo "Conflicts happen when files/directories already exist and are not symlinks."
+  echo "Recommended: move or remove conflicting paths, then rerun ./install.sh"
+
+  if [[ "$CONFLICT_POLICY" == "fail" ]]; then
+    echo ""
+    echo "Aborting install due to conflict policy: fail"
+    echo "To proceed without replacing conflicting paths, rerun with:"
+    echo "  ./install.sh --conflict-policy skip"
+    return 1
+  fi
+
+  echo ""
+  echo "Continuing with conflict policy: skip"
+  echo "Only non-conflicting paths will be linked."
+  return 0
 }
 
 require_registry() {
@@ -234,6 +273,8 @@ install_with_csv() {
     exit 1
   }
 
+  collect_conflicts || exit 1
+
   save_state_csv "$resolved_csv"
   link_managed_items
 
@@ -323,6 +364,28 @@ uninstall_all() {
 }
 
 main() {
+  while [[ $# -gt 0 ]]; do
+    case "$1" in
+      --conflict-policy)
+        if [[ -z "${2:-}" ]]; then
+          echo "Error: --conflict-policy requires a value (fail|skip)."
+          usage
+          exit 1
+        fi
+        if [[ "$2" != "fail" && "$2" != "skip" ]]; then
+          echo "Error: invalid --conflict-policy value: $2"
+          usage
+          exit 1
+        fi
+        CONFLICT_POLICY="$2"
+        shift 2
+        ;;
+      *)
+        break
+        ;;
+    esac
+  done
+
   case "${1:-}" in
     "")
       install_with_csv "$(load_enabled_profiles)"
@@ -356,6 +419,11 @@ main() {
         exit 1
       fi
       disable_profile "$2"
+      ;;
+    --conflict-policy)
+      echo "Error: --conflict-policy must be combined with an install action."
+      usage
+      exit 1
       ;;
     --uninstall)
       uninstall_all

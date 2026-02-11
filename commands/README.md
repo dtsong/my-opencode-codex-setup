@@ -15,3 +15,4 @@ Script mappings:
 - `scripts/ops-check.sh`
 - `scripts/issue-pr-loop.sh`
 - `scripts/council-lite.sh`
+- `scripts/validate-council-lite.sh`
