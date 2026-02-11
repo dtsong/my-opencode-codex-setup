@@ -13,3 +13,12 @@ Initial skills:
 - workflow
 - code-search
 - handover
+- git-status
+- git-workflows
+- github-workflow
+- web-security-hardening
+- cicd-generation
+- dockerfile-generation
+- helm-generation
+- language-conventions
+- terraform-skill
