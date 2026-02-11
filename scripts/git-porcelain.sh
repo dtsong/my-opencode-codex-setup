@@ -4,7 +4,7 @@ set -euo pipefail
 WORKSPACE="$(git rev-parse --show-toplevel 2>/dev/null || pwd)"
 
 usage() {
-  cat << 'EOF'
+  cat <<'EOF'
 Usage: git-porcelain.sh <command> [args]
 
 Commands:
@@ -37,7 +37,7 @@ EOF
 is_sensitive_path() {
   local path="$1"
   case "$path" in
-    *.pem|*.key|*.p12|*.pfx|*.kube/config|*.env|*.env.*|*credentials*.json|*secrets*.json)
+    *.pem | *.key | *.p12 | *.pfx | *.kube/config | *.env | *.env.* | *credentials*.json | *secrets*.json)
       return 0
       ;;
     *)
@@ -127,20 +127,21 @@ cmd_pr_draft() {
     --head "$branch" \
     --draft \
     --title "$title" \
-    --body "$(cat <<'EOF'
+    --body "$(
+      cat <<'EOF'
 ## Summary
 - Describe the intent and context.
 
 ## Testing
 - [ ] Add the validation commands you ran.
 EOF
-)"
+    )"
 }
 
 main() {
   local command="${1:-}"
   case "$command" in
-    ""|"-h"|"--help")
+    "" | "-h" | "--help")
       usage
       ;;
     status)

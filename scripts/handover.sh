@@ -7,7 +7,7 @@ STAMP="$(date +%Y-%m-%d-%H%M)"
 OUTFILE="$OUTDIR/HANDOVER-$STAMP.md"
 
 if [[ "${1:-}" == "--help" ]]; then
-  cat << 'EOF'
+  cat <<'EOF'
 Usage: handover.sh [--print]
 
 Creates a handover markdown file in memory/ with a repository snapshot.
@@ -32,7 +32,7 @@ if [[ -z "$COMMITS" ]]; then
   COMMITS="(no commits yet)"
 fi
 
-cat > "$OUTFILE" << EOF
+cat >"$OUTFILE" <<EOF
 # Session Handover - $STAMP
 
 ## Workspace Snapshot

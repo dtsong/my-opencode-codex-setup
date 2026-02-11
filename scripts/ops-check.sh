@@ -5,7 +5,7 @@ WORKSPACE="$(git rev-parse --show-toplevel 2>/dev/null || pwd)"
 FAILURES=0
 
 usage() {
-  cat << 'EOF'
+  cat <<'EOF'
 Usage: ops-check.sh [--strict]
 
 Runs stack-aware quality checks for Node.js, Python, and Terraform when detected.
@@ -60,7 +60,7 @@ has_tool() {
 
 node_has_script() {
   local key="$1"
-  python3 - << PY
+  python3 - <<PY
 import json
 from pathlib import Path
 pkg = Path("$WORKSPACE/package.json")
@@ -144,7 +144,7 @@ check_python() {
 }
 
 check_terraform() {
-  if ! compgen -G "$WORKSPACE/*.tf" > /dev/null; then
+  if ! compgen -G "$WORKSPACE/*.tf" >/dev/null; then
     return
   fi
 

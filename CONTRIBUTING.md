@@ -29,3 +29,13 @@ Each agent markdown should define:
 - Explain why the change exists.
 - Include before/after behavior when relevant.
 - Link issues when possible.
+
+## Local Validation
+
+This repo uses `pre-commit` for lightweight quality checks across shell, JSON/YAML, and markdown.
+
+```bash
+python3 -m pip install --user pre-commit
+pre-commit install
+pre-commit run --all-files
+```

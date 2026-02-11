@@ -4,7 +4,7 @@ set -euo pipefail
 WORKSPACE="$(git rev-parse --show-toplevel 2>/dev/null || pwd)"
 
 usage() {
-  cat << 'EOF'
+  cat <<'EOF'
 Usage: issue-pr-loop.sh <command> [args]
 
 Commands:
@@ -29,7 +29,7 @@ require_gh() {
 }
 
 slugify() {
-  python3 - << 'PY'
+  python3 - <<'PY'
 import re
 import sys
 text = sys.stdin.read().strip().lower()
@@ -76,7 +76,8 @@ cmd_pr() {
     --head "$branch" \
     --draft \
     --title "${issue_title}" \
-    --body "$(cat <<EOF
+    --body "$(
+      cat <<EOF
 Closes #$issue
 
 ## Summary
@@ -85,13 +86,13 @@ Closes #$issue
 ## Testing
 - [ ] Add commands run locally
 EOF
-)"
+    )"
 }
 
 main() {
   local command="${1:-}"
   case "$command" in
-    ""|"-h"|"--help")
+    "" | "-h" | "--help")
       usage
       ;;
     start)

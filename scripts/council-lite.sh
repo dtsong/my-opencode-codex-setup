@@ -101,7 +101,7 @@ cmd_start() {
 
   mkdir -p "$outdir"
 
-  cat > "$outfile" <<EOF
+  cat >"$outfile" <<EOF
 # Council Lite Session - $stamp
 
 ## Goal
@@ -132,7 +132,7 @@ EOF
 main() {
   local command="${1:-}"
   case "$command" in
-    ""|"-h"|"--help")
+    "" | "-h" | "--help")
       usage
       ;;
     status)

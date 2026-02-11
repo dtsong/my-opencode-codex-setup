@@ -48,7 +48,7 @@ require_registry() {
 assert_profile_exists() {
   local profile_id="$1"
   require_registry
-  if ! python3 - "$REGISTRY_PATH" "$profile_id" <<'PY'
+  if ! python3 - "$REGISTRY_PATH" "$profile_id" <<'PY'; then
 import json
 import sys
 
@@ -57,7 +57,6 @@ registry = json.load(open(registry_path, "r", encoding="utf-8"))
 ids = {p["id"] for p in registry.get("profiles", [])}
 raise SystemExit(0 if profile_id in ids else 1)
 PY
-  then
     echo "Unknown profile: $profile_id"
     echo "Use --list-profiles to view valid profile IDs."
     exit 1
@@ -277,7 +276,8 @@ disable_profile() {
   current_csv="$(load_enabled_profiles)"
 
   local updated_csv
-  updated_csv="$(python3 - "$current_csv" "$profile_id" <<'PY'
+  updated_csv="$(
+    python3 - "$current_csv" "$profile_id" <<'PY'
 import sys
 
 current_csv, profile_id = sys.argv[1], sys.argv[2]
@@ -287,7 +287,7 @@ if not filtered:
     filtered = ["core"]
 print(",".join(filtered))
 PY
-)"
+  )"
 
   install_with_csv "$updated_csv"
 }
@@ -324,7 +324,7 @@ uninstall_all() {
 
 main() {
   case "${1:-}" in
-    "" )
+    "")
       install_with_csv "$(load_enabled_profiles)"
       ;;
     --list-profiles)
@@ -360,7 +360,7 @@ main() {
     --uninstall)
       uninstall_all
       ;;
-    -h|--help)
+    -h | --help)
       usage
       ;;
     *)
