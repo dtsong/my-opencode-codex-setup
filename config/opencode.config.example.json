@@ -1,0 +1,14 @@
+{
+  "agent": {
+    "default": "architect"
+  },
+  "mode": {
+    "default": "build"
+  },
+  "command": {
+    "handover": "commands/handover.md",
+    "git-porcelain": "commands/git-porcelain.md",
+    "ops-check": "commands/ops-check.md"
+  },
+  "notes": "Example only. Merge with your local OpenCode config via opencode debug config."
+}
