@@ -2,6 +2,18 @@
 
 Purpose: fast, safe git operations.
 
+Script:
+- `scripts/git-porcelain.sh`
+
+Usage:
+```bash
+./scripts/git-porcelain.sh status
+./scripts/git-porcelain.sh save "feat: message"
+./scripts/git-porcelain.sh branch feat/something
+./scripts/git-porcelain.sh sync main
+./scripts/git-porcelain.sh pr-draft main "feat: title"
+```
+
 Supported actions:
 - status snapshot
 - save (stage + commit)

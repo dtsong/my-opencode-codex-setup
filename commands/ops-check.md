@@ -2,6 +2,15 @@
 
 Purpose: run stack-aware health checks.
 
+Script:
+- `scripts/ops-check.sh`
+
+Usage:
+```bash
+./scripts/ops-check.sh
+./scripts/ops-check.sh --strict
+```
+
 Checks by stack:
 - Node.js: build, typecheck, lint, test
 - Python: lint, format-check, test, optional typing

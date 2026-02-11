@@ -41,3 +41,12 @@ my-opencode-codex-setup/
 ## Roadmap
 
 See `docs/roadmap.md`.
+
+## Workflow Scripts
+
+- `scripts/handover.sh` - create a session handover document
+- `scripts/git-porcelain.sh` - status/save/sync/branch/pr helper
+- `scripts/ops-check.sh` - stack-aware quality gate checks
+- `scripts/issue-pr-loop.sh` - issue to branch to draft PR flow
+
+See `docs/workflows-playbook.md` for usage patterns.

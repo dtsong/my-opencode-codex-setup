@@ -19,6 +19,9 @@
 - git porcelain
 - ops check
 - issue-to-pr starter loop
+- executable scripts for each workflow
+- command docs mapped to script usage
+- playbook with usage examples
 
 ## Phase 5: Open Source Readiness
 - examples
