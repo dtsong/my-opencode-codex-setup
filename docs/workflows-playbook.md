@@ -51,3 +51,14 @@ Checks are auto-detected for:
 ```
 
 This creates one branch and one draft PR per issue.
+
+## Council Lite
+
+```bash
+./scripts/council-lite.sh status
+./scripts/council-lite.sh start "Design safe billing webhooks"
+```
+
+Notes:
+- requires `council-lite` profile enabled
+- creates `memory/COUNCIL-LITE-<timestamp>.md` scaffold

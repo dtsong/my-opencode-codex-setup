@@ -12,10 +12,19 @@ Use this checklist before tagging a release.
 ## Validation
 
 - [ ] `bash -n scripts/*.sh` passes
+- [ ] `bash -n install.sh` passes
 - [ ] `./scripts/ops-check.sh` passes in this repo
 - [ ] install and uninstall path tested:
   - [ ] `./install.sh`
+  - [ ] `./install.sh --list-profiles`
+  - [ ] `./install.sh --status`
+  - [ ] `./install.sh --profiles core,council-lite`
+  - [ ] `./install.sh --enable-profile council-research`
+  - [ ] `./install.sh --disable-profile council-research`
+  - [ ] `./scripts/council-lite.sh start "Smoke test"`
   - [ ] `./install.sh --uninstall`
+- [ ] experimental warning shown when `council-research` is enabled
+- [ ] profile state removed on uninstall (`~/.config/opencode/profiles-enabled.json`)
 
 ## Community health
 

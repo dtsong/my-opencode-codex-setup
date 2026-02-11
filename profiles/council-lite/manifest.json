@@ -1,0 +1,28 @@
+{
+  "id": "council-lite",
+  "display_name": "Council Lite",
+  "stability": "beta",
+  "description": "Lightweight advanced orchestration profile with council-lite session scaffolding.",
+  "depends_on": [
+    "core"
+  ],
+  "exports": {
+    "agents": [],
+    "skills": [],
+    "commands": [
+      "commands/council-lite.md"
+    ],
+    "scripts": [
+      "scripts/council-lite.sh"
+    ],
+    "docs": [
+      "profiles/council-lite/README.md"
+    ],
+    "workspaces": [],
+    "config": []
+  },
+  "notes": [
+    "Beta profile intended for staged adoption.",
+    "Expect iterative improvements as features graduate from research."
+  ]
+}

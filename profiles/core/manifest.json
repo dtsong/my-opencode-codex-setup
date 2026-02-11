@@ -1,0 +1,20 @@
+{
+  "id": "core",
+  "display_name": "Core",
+  "stability": "stable",
+  "description": "Default practical OpenCode/Codex setup.",
+  "depends_on": [],
+  "exports": {
+    "agents": [],
+    "skills": [],
+    "commands": [],
+    "scripts": [],
+    "docs": [],
+    "workspaces": [],
+    "config": []
+  },
+  "notes": [
+    "Installed by default.",
+    "Recommended baseline for all users."
+  ]
+}

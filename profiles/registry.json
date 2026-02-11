@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "profiles": [
+    {
+      "id": "core",
+      "display_name": "Core",
+      "stability": "stable",
+      "description": "Default practical OpenCode/Codex setup.",
+      "depends_on": []
+    },
+    {
+      "id": "council-lite",
+      "display_name": "Council Lite",
+      "stability": "beta",
+      "description": "Lightweight advanced orchestration profile with council-lite session scaffolding.",
+      "depends_on": [
+        "core"
+      ]
+    },
+    {
+      "id": "council-research",
+      "display_name": "Council Research",
+      "stability": "experimental",
+      "description": "Early availability research profile under active battle testing.",
+      "depends_on": [
+        "core"
+      ]
+    }
+  ]
+}

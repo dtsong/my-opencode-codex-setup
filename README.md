@@ -18,9 +18,45 @@ chmod +x install.sh
 ./install.sh
 ```
 
+## Profiles
+
+This setup supports optional profiles:
+
+- `core` (`stable`) - default practical setup
+- `council-lite` (`beta`) - lightweight advanced orchestration layer (`commands/council-lite.md`)
+- `council-research` (`experimental`) - early availability research mode under active battle testing
+
+Common commands:
+
+```bash
+# list available profiles
+./install.sh --list-profiles
+
+# show enabled/disabled profiles and state location
+./install.sh --status
+
+# set exact profiles (dependencies auto-added)
+./install.sh --profiles core,council-lite
+
+# enable or disable one profile
+./install.sh --enable-profile council-lite
+./install.sh --disable-profile council-lite
+
+# start a council-lite session scaffold
+./scripts/council-lite.sh start "Design safe billing webhooks"
+```
+
+Profile state is persisted at:
+
+`~/.config/opencode/profiles-enabled.json`
+
+For profile adoption guidance, see `docs/profiles.md`.
+
 ## What This Installs
 
 `install.sh` creates symlinks into `~/.config/opencode/` so edits in this repo apply immediately.
+
+`./install.sh --uninstall` removes managed symlinks and profile state.
 
 ## Directory Layout
 
@@ -33,6 +69,7 @@ my-opencode-codex-setup/
 ├── workspaces/             # Project-specific context templates
 ├── config/                 # OpenCode config examples
 ├── docs/                   # Migration and architecture notes
+├── profiles/               # Optional profile metadata and manifests
 ├── install.sh
 ├── CONTRIBUTING.md
 └── LICENSE
@@ -48,6 +85,7 @@ See `docs/roadmap.md`.
 - `scripts/git-porcelain.sh` - status/save/sync/branch/pr helper
 - `scripts/ops-check.sh` - stack-aware quality gate checks
 - `scripts/issue-pr-loop.sh` - issue to branch to draft PR flow
+- `scripts/council-lite.sh` - lightweight multi-agent session scaffold
 
 See `docs/workflows-playbook.md` for usage patterns.
 

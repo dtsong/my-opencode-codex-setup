@@ -1,0 +1,26 @@
+{
+  "id": "council-research",
+  "display_name": "Council Research",
+  "stability": "experimental",
+  "description": "Early availability orchestration profile in research mode.",
+  "depends_on": [
+    "core"
+  ],
+  "exports": {
+    "agents": [],
+    "skills": [],
+    "commands": [],
+    "scripts": [],
+    "docs": [
+      "profiles/council-research/README.md",
+      "profiles/council-research/BATTLE_TESTING.md"
+    ],
+    "workspaces": [],
+    "config": []
+  },
+  "notes": [
+    "Experimental and under active battle testing.",
+    "Behavior and interfaces may change without notice.",
+    "Not recommended as the only daily-driver profile."
+  ]
+}

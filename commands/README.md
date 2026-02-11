@@ -7,9 +7,11 @@ Initial set:
 - `git-porcelain.md`
 - `ops-check.md`
 - `issue-pr-loop.md`
+- `council-lite.md`
 
 Script mappings:
 - `scripts/handover.sh`
 - `scripts/git-porcelain.sh`
 - `scripts/ops-check.sh`
 - `scripts/issue-pr-loop.sh`
+- `scripts/council-lite.sh`

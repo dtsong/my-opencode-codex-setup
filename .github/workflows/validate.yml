@@ -1,0 +1,47 @@
+name: Validate
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  validation:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Shell syntax checks
+        run: |
+          bash -n install.sh
+          bash -n scripts/*.sh
+
+      - name: Validate profile JSON files
+        run: |
+          python3 -m json.tool profiles/registry.json >/dev/null
+          python3 -m json.tool profiles/core/manifest.json >/dev/null
+          python3 -m json.tool profiles/council-lite/manifest.json >/dev/null
+          python3 -m json.tool profiles/council-research/manifest.json >/dev/null
+
+      - name: Installer profile commands smoke test
+        run: |
+          ./install.sh --list-profiles
+          ./install.sh --status
+          ./install.sh --profiles core,council-lite
+          ./install.sh --enable-profile council-research
+          ./install.sh --disable-profile council-research
+          ./install.sh --uninstall
+
+      - name: Verify profile state removed on uninstall
+        run: |
+          test ! -f "$HOME/.config/opencode/profiles-enabled.json"
+
+      - name: Council-lite script smoke test
+        run: |
+          ./install.sh --profiles core,council-lite
+          ./scripts/council-lite.sh status
+          ./scripts/council-lite.sh start "CI smoke test goal"
+          ./install.sh --uninstall
