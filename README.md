@@ -106,3 +106,5 @@ See `docs/workflows-playbook.md` for usage patterns.
 - practical usage examples in `examples/`
 - release checklist in `docs/release-checklist.md`
 - launch checklist in `docs/open-source-launch.md`
+- friend outreach message in `docs/friend-outreach-template.md`
+- onboarding feedback channels in `docs/onboarding-feedback.md`

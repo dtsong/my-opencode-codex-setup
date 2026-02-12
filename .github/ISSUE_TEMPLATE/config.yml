@@ -1,5 +1,8 @@
 blank_issues_enabled: true
 contact_links:
+  - name: Manual onboarding feedback form
+    url: https://github.com/dtsong/my-opencode-codex-setup/blob/main/docs/onboarding-feedback.md
+    about: Use this if a tester cannot submit a GitHub issue directly.
   - name: Discussions
     url: https://github.com/dtsong/my-opencode-codex-setup/discussions
     about: Ask open-ended questions and share ideas.

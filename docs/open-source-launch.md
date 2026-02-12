@@ -32,9 +32,11 @@ This is separate from `docs/release-checklist.md`, which is for recurring versio
 - [ ] GitHub release drafted with highlights and known limitations
 - [ ] launch announcement copy prepared (X/LinkedIn/GitHub Discussion)
 - [ ] first 3-5 starter issues prepared for contributors
+- [ ] friend outreach template is ready (`docs/friend-outreach-template.md`)
 
 ## Post-launch Follow-up
 
 - [ ] monitor first-week issues and triage daily
 - [ ] collect onboarding friction points from early users
+- [ ] onboarding feedback issue template/manual form are active (`docs/onboarding-feedback.md`)
 - [ ] publish first-week patch release plan
