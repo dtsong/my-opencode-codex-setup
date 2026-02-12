@@ -96,6 +96,7 @@ See `docs/roadmap.md`.
 - `scripts/issue-pr-loop.sh` - issue to branch to draft PR flow
 - `scripts/council-lite.sh` - lightweight multi-agent session scaffold
 - `scripts/validate-council-lite.sh` - council-lite artifact structure validator
+- `scripts/share-templates.sh` - copy DM/Discord onboarding templates to clipboard
 
 See `docs/workflows-playbook.md` for usage patterns.
 

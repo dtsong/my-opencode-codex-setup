@@ -2,6 +2,21 @@
 
 Use this message when inviting friends to help validate onboarding.
 
+Quick copy helpers are available:
+
+```bash
+./scripts/share-templates.sh --dm
+./scripts/share-templates.sh --discord
+```
+
+Or source functions into your shell:
+
+```bash
+source scripts/share-templates.sh
+copy_dm
+copy_discord_pin
+```
+
 ## Copy/Paste Message
 
 Hey! I am testing onboarding for my OpenCode/Codex setup and would love your help.
