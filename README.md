@@ -2,12 +2,19 @@
 
 Portable OpenCode + Codex setup inspired by `my-claude-setup`.
 
-This repository is a practical starter for:
+This repository is for people who use OpenCode and want a reproducible, versioned setup they can reuse across machines:
 - reusable agents
 - structured skills
 - workspace-aware project context
 - session handover workflow
 - command-style execution playbooks
+
+## Prerequisites
+
+- OpenCode installed: https://opencode.ai/docs (install script: https://opencode.ai/install)
+- `git`, `bash`, and `python3` available on your PATH
+- Optional (contributors): `pre-commit`
+- Optional (GitHub workflows): `gh` authenticated (`gh auth login`)
 
 ## Quick Start
 
@@ -16,6 +23,13 @@ git clone https://github.com/<you>/my-opencode-codex-setup.git ~/Development/my-
 cd ~/Development/my-opencode-codex-setup
 chmod +x install.sh
 ./install.sh
+```
+
+Verify it worked:
+
+```bash
+./install.sh --status
+./scripts/ops-check.sh
 ```
 
 ## Profiles
@@ -67,6 +81,31 @@ Use `--conflict-policy skip` to leave conflicting paths untouched and continue l
 
 `./install.sh --uninstall` removes managed symlinks and profile state.
 
+## Try It Now
+
+```bash
+# create a session handover note in ./memory
+./scripts/handover.sh
+
+# quick repo-local quality gate detection
+./scripts/ops-check.sh
+
+# git helper
+./scripts/git-porcelain.sh status
+
+# issue -> branch -> draft PR loop (requires gh auth)
+./scripts/issue-pr-loop.sh start 123 main
+./scripts/issue-pr-loop.sh pr 123 main
+```
+
+If you enabled `council-lite`, you can also run:
+
+```bash
+./scripts/council-lite.sh run "Design safe billing webhooks"
+./scripts/council-lite.sh list
+./scripts/validate-council-lite.sh --latest
+```
+
 ## Directory Layout
 
 ```text
@@ -113,3 +152,23 @@ Use `docs/gpt53-opencode-playbook.md` as the default runbook for GPT-5.3 + OpenC
 - launch checklist in `docs/open-source-launch.md`
 - friend outreach message in `docs/friend-outreach-template.md`
 - onboarding feedback channels in `docs/onboarding-feedback.md`
+
+## Where To Go Next
+
+- Profiles and installer behavior: `docs/profiles.md`
+- Common scripts and usage patterns: `docs/workflows-playbook.md`
+- Agent pack overview and how to invoke agents: `docs/agents-playbook.md` and `agents/README.md`
+- Mapping from Claude setup patterns: `docs/what-maps-what.md` and `docs/migration-from-claude.md`
+
+## Troubleshooting
+
+Conflicts under `~/.config/opencode/`:
+- If a managed path already exists and is not a symlink, install fails by default.
+- Recommended: move/remove the conflicting path, then rerun `./install.sh`.
+- If you want to proceed without replacing conflicting paths, use `./install.sh --conflict-policy skip`.
+
+"I expected files to be copied":
+- This repo is designed around symlinks. Editing files in this repo updates your OpenCode config immediately.
+
+"python3 not found":
+- Install requires `python3` for profile resolution and state management.
