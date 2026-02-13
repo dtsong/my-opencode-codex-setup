@@ -100,6 +100,10 @@ See `docs/roadmap.md`.
 
 See `docs/workflows-playbook.md` for usage patterns.
 
+## AI Delivery Playbook
+
+Use `docs/gpt53-opencode-playbook.md` as the default runbook for GPT-5.3 + OpenCode execution to reduce rework.
+
 ## Open Source Readiness
 
 - community templates in `.github/`
